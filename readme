@@ -1,0 +1,14 @@
+El proyecto esta con base en MySql con nombre prueba las columnas se generan automaticamente
+
+El back esta en python y el front en react
+
+desde la raiz
+python run.py
+
+cd front
+npm start
+
+
+permite asignar varios establecimentos a locales,
+el crud compelto de usaurio
+creacios de establecimientos

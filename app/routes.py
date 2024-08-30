@@ -90,7 +90,6 @@ def get_establecimientos_list():
         'EstablecimientoId': e.EstablecimientoId,
         'Nombre': e.Nombre,
         'Estado': e.Estado,
-        'FechaCreacion': e.FechaCreacion
     } for e in establecimientos])
 
 # Actualizar establecimiento
@@ -110,3 +109,13 @@ def delete_establecimiento(establecimiento_id):
     db.session.delete(establecimiento)
     db.session.commit()
     return jsonify({'message': 'Establecimiento eliminado'})
+
+# Obtener asignaciones de establecimientos a usuarios
+@bp.route('/asignaciones', methods=['GET'])
+def get_asignaciones():
+    asignaciones = EstablecimientoXUsuario.query.all()
+    result = [{
+        'UsuarioId': asignacion.UsuarioId,
+        'EstablecimientoId': asignacion.EstablecimientoId
+    } for asignacion in asignaciones]
+    return jsonify(result)
